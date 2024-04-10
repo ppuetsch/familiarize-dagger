@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
+      - name: Install anyio
+        run: pip install anyio
       - name: Dagger-Pipeline
         uses: dagger/dagger-for-github@v5
         with:
