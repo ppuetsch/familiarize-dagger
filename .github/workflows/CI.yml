@@ -1,0 +1,15 @@
+name: Dagger CI Demo
+on: [push]
+jobs:
+  run-dagger-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Dagger-Pipeline
+        uses: dagger/dagger-for-github@v5
+        with:
+          workdir: .
+          verb: run
+          args: python CI/pipeline.py
+          version: "0.11.0"
